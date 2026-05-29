@@ -1,0 +1,34 @@
+﻿{% extends 'app/layout.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+ <div class="row">
+     <div class="col-sm-3" style="padding-left:2em" >
+         <br />
+         <table class="table table-striped" style="background-color:antiquewhite">             
+            <thead><tr class="danger"><th>My Personal Dashboard</th></tr></thead>
+             <tr class="success"><td><a href="{% url 'serviceprov_profile' %}">My profile</a></td></tr>
+             <tr class="warning"><td><a href="/editprofile/{{ sp_profile.id }}">Edit Profile</a></td></tr>
+              <tr class="active"><td><a href="{% url 'addservices' %}">Add My Services </a></td></tr>
+              <tr class="success"><td><a href="{% url 'changepassword' %}">Change Password</a></td></tr>
+             <tr class="info"><td><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span>Log out</a></td></tr>
+         </table>
+     </div>
+     <div class="col-sm-8">
+     <h2> My Profile </h2> 
+         <br />
+     <table class="table table-striped table-bordered" >
+         <tbody>
+             <tr><td>User Name</td><td>{{ sp_profile.username }}</td></tr>
+             <tr><td>First Name</td><td>{{ sp_profile.first_name }}</td></tr>
+             <tr><td>Last Name</td><td>{{ sp_profile.last_name }}</td></tr>
+             <tr><td>Email</td><td>{{ sp_profile.email }}</td></tr>
+             <tr><td>Contact</td><td>{{ sp_profile.profile.contact }}</td></tr>
+         </tbody>
+
+     </table>
+    </div>
+     <div class="col-sm-1"></div>
+ </div>
+</div>
+{% endblock %}

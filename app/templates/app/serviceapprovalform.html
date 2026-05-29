@@ -1,0 +1,59 @@
+﻿{% extends 'app/layout.html' %}
+{% block content %}
+<div>
+        <form  method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                     <div class="panel-heading">Approve Service</div>
+                      {% if success %}
+                       <a href="#" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-ok"></span>&nbsp; Service approved Successfully 
+                      </a>                   
+                      {% endif %}
+                    <div class="panel-body">
+                        
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+                      
+                        <table class="table table-bordered">
+                          {{ form1.as_table}}
+                        </table>
+                      </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                            <div class="panel-heading"> Payment</div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    {{ form2.as_table }}
+                                </table>
+                            </div>
+                        </div>
+                </div>
+                 <div class="form-group" style="width:100%">
+                    <div class="col-md-offset-2 col-md-10">                      
+                        <input type="submit" value="Approve" class="btn btn-primary btn-lg" />
+                        <p style="color:red"><strong>{{ messge }}</strong></p>
+                    </div>
+                 </div>
+            </div>
+        </form>
+    </div>
+<script type="text/javascript">
+    document.getElementById("id_total_days").addEventListener("focusout", calculate());
+
+    function calculate() {
+        var days = document.getElementById("id_total_days").value;
+        var servcharge = document.getElementById("id_servicecharge").value;
+        var totamt = int(days) * int(servcharge);
+        document.getElementById("id_total_amount").value = totamt
+}
+
+</script>
+
+
+{% endblock %}

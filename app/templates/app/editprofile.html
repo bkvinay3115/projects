@@ -1,0 +1,65 @@
+﻿{% extends 'app/layout.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+    <form method="post" role="form">
+             {% csrf_token %}
+ <div class="row">
+     <div class="col-sm-3" style="padding-left:2em">
+         <br />
+         {% if user.is_authenticated %}
+                         {% if user.profile.is_customer %}  
+         <table class="table table-striped" style="background-color:aliceblue" >             
+            <thead><tr class="danger"><th>My Personal Dashboard</th></tr></thead>
+             <tr class="success"><td><a href="{% url 'customer_profile' %}">My profile</a></td></tr>
+             <tr class="warning"><td><a href="/editprofile/{{ cust_profile.id }}">Edit Profile</a></td></tr>
+             <tr class="active"><td><a href="{% url 'myservicebookings' %}">My Service Bookings</a></td></tr>
+             <tr class="danger"><td><a href="{% url 'feedback' %}">Feedback</a></td></tr>
+             <tr class="success"><td><a href="{% url 'changepassword' %}">Chnage Password</a></td></tr>
+             <tr class="warning"><td><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span>Log out</a></td></tr>
+         </table>
+         
+                          {% else %}
+             <table class="table table-striped" style="background-color:antiquewhite">             
+            <thead><tr class="danger"><th> My Personal Dashboard</th></tr></thead>
+            
+             <tr class="success"><td><a href="{% url 'serviceprov_profile' %}">My profile</a></td></tr>
+             <tr class="warning"><td><a href="/editprofile/{{ sp_profile.id }}">Edit Profile</a></td></tr>
+             <tr class="active"><td><a href="{% url 'addservices' %}">Add My Services</a></td></tr>
+             <tr class="success"><td><a href="{% url 'changepassword' %}">Chnage Password</a></td></tr>    
+             <tr class="info"><td><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span>Log out</a></td></tr>
+           
+            
+         </table>
+                         {% endif %}
+         {% endif %}
+         
+  
+     </div>
+     <div class="col-sm-8" style="background-color:cadetblue">
+         
+     <h2 style="font-weight:bold;color:whitesmoke;">Update Profile </h2> 
+         <br />
+     <table class="table table-bordered">
+         
+         <tbody>
+             <tr><td style="font-weight:bold;color:whitesmoke;">User Name</td><td><input type="text" name="usname" class="form-control" value="{{ u_profile.username }}" /></td></tr>
+             <tr><td style="font-weight:bold;color:whitesmoke;">First Name</td><td><input type="text" name="first_name" class="form-control" value="{{ u_profile.first_name }}" /></td></tr>
+             <tr><td style="font-weight:bold;color:whitesmoke;">Last Name</td><td><input type="text" name="last_name" class="form-control" value="{{ u_profile.last_name }}" /></td></tr>
+             <tr><td style="font-weight:bold;color:whitesmoke;">Email</td><td><input type="text" name="email" class="form-control" value="{{ u_profile.email }}" /></td></tr>
+             <tr><td style="font-weight:bold;color:whitesmoke;">Contact</td><td><input type="text" name="contact" class="form-control" value="{{ u_profile.profile.contact }}" /></td></tr>
+         </tbody>
+      <tfoot><tr><td colspan="2">{% if success %} <p style="color:green;">Updated Successfully </p>{% endif %} </td></tr></tfoot>
+     </table>
+             
+         </div>
+           <div class="col-md-8 col-md-offset-4">
+               <br />
+            <input type="submit" value="Update" class="btn btn-primary">
+        </div>
+    </div>
+     <div class="col-sm-1"></div>
+        </form>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>Smartservices</Name>
+    <RootNamespace>Smartservices</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>c6952ea9-b3bc-4bf7-b3cd-c8fb5981d3c2</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>Smartservices.settings</DjangoSettingsModule>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\forms.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\views.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="Smartservices\__init__.py" />
+    <Compile Include="Smartservices\settings.py" />
+    <Compile Include="Smartservices\urls.py" />
+    <Compile Include="Smartservices\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\assets\css\" />
+    <Folder Include="app\static\app\assets\img\" />
+    <Folder Include="app\static\app\assets\img\clients\" />
+    <Folder Include="app\static\app\assets\img\portfolio\" />
+    <Folder Include="app\static\app\assets\js\" />
+    <Folder Include="app\static\app\assets\lib\" />
+    <Folder Include="app\static\app\assets\lib\animate\" />
+    <Folder Include="app\static\app\assets\lib\bootstrap\" />
+    <Folder Include="app\static\app\assets\lib\bootstrap\css\" />
+    <Folder Include="app\static\app\assets\lib\bootstrap\js\" />
+    <Folder Include="app\static\app\assets\lib\counterup\" />
+    <Folder Include="app\static\app\assets\lib\easing\" />
+    <Folder Include="app\static\app\assets\lib\font-awesome\" />
+    <Folder Include="app\static\app\assets\lib\font-awesome\css\" />
+    <Folder Include="app\static\app\assets\lib\font-awesome\fonts\" />
+    <Folder Include="app\static\app\assets\lib\ionicons\" />
+    <Folder Include="app\static\app\assets\lib\ionicons\css\" />
+    <Folder Include="app\static\app\assets\lib\ionicons\fonts\" />
+    <Folder Include="app\static\app\assets\lib\isotope\" />
+    <Folder Include="app\static\app\assets\lib\jquery\" />
+    <Folder Include="app\static\app\assets\lib\lightbox\" />
+    <Folder Include="app\static\app\assets\lib\lightbox\css\" />
+    <Folder Include="app\static\app\assets\lib\lightbox\images\" />
+    <Folder Include="app\static\app\assets\lib\lightbox\js\" />
+    <Folder Include="app\static\app\assets\lib\mobile-nav\" />
+    <Folder Include="app\static\app\assets\lib\owlcarousel\" />
+    <Folder Include="app\static\app\assets\lib\owlcarousel\assets\" />
+    <Folder Include="app\static\app\assets\lib\waypoints\" />
+    <Folder Include="app\static\app\assets\lib\wow\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\assets\" />
+    <Folder Include="app\static\app\images\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="Smartservices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\static\app\assets\css\scss-files.txt" />
+    <Content Include="app\static\app\assets\css\style.css" />
+    <Content Include="app\static\app\assets\img\about-img.jpg" />
+    <Content Include="app\static\app\assets\img\apple-touch-icon.png" />
+    <Content Include="app\static\app\assets\img\clients\client-1.png" />
+    <Content Include="app\static\app\assets\img\clients\client-2.png" />
+    <Content Include="app\static\app\assets\img\clients\client-3.png" />
+    <Content Include="app\static\app\assets\img\clients\client-4.png" />
+    <Content Include="app\static\app\assets\img\clients\client-5.png" />
+    <Content Include="app\static\app\assets\img\clients\client-6.png" />
+    <Content Include="app\static\app\assets\img\clients\client-7.png" />
+    <Content Include="app\static\app\assets\img\clients\client-8.png" />
+    <Content Include="app\static\app\assets\img\favicon.png" />
+    <Content Include="app\static\app\assets\img\features-1.svg" />
+    <Content Include="app\static\app\assets\img\features-2.svg" />
+    <Content Include="app\static\app\assets\img\header-bg.psd" />
+    <Content Include="app\static\app\assets\img\intro-bg.jpg" />
+    <Content Include="app\static\app\assets\img\intro-img.svg" />
+    <Content Include="app\static\app\assets\img\portfolio\app1.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\app2.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\app3.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\card1.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\card2.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\card3.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\web1.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\web2.jpg" />
+    <Content Include="app\static\app\assets\img\portfolio\web3.jpg" />
+    <Content Include="app\static\app\assets\img\team-1.jpg" />
+    <Content Include="app\static\app\assets\img\team-2.jpg" />
+    <Content Include="app\static\app\assets\img\team-3.jpg" />
+    <Content Include="app\static\app\assets\img\team-4.jpg" />
+    <Content Include="app\static\app\assets\img\testimonial-1.jpg" />
+    <Content Include="app\static\app\assets\img\testimonial-2.jpg" />
+    <Content Include="app\static\app\assets\img\testimonial-3.jpg" />
+    <Content Include="app\static\app\assets\img\testimonial-4.jpg" />
+    <Content Include="app\static\app\assets\img\why-us.jpg" />
+    <Content Include="app\static\app\assets\js\main.js" />
+    <Content Include="app\static\app\assets\lib\animate\animate.css" />
+    <Content Include="app\static\app\assets\lib\animate\animate.min.css" />
+    <Content Include="app\static\app\assets\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="app\static\app\assets\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="app\static\app\assets\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="app\static\app\assets\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="app\static\app\assets\lib\counterup\counterup.min.js" />
+    <Content Include="app\static\app\assets\lib\easing\easing.js" />
+    <Content Include="app\static\app\assets\lib\easing\easing.min.js" />
+    <Content Include="app\static\app\assets\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="app\static\app\assets\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="app\static\app\assets\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="app\static\app\assets\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\static\app\assets\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="app\static\app\assets\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="app\static\app\assets\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="app\static\app\assets\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="app\static\app\assets\lib\ionicons\css\ionicons.css" />
+    <Content Include="app\static\app\assets\lib\ionicons\css\ionicons.min.css" />
+    <Content Include="app\static\app\assets\lib\ionicons\fonts\ionicons.eot" />
+    <Content Include="app\static\app\assets\lib\ionicons\fonts\ionicons.svg" />
+    <Content Include="app\static\app\assets\lib\ionicons\fonts\ionicons.ttf" />
+    <Content Include="app\static\app\assets\lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="app\static\app\assets\lib\isotope\isotope.pkgd.js" />
+    <Content Include="app\static\app\assets\lib\isotope\isotope.pkgd.min.js" />
+    <Content Include="app\static\app\assets\lib\jquery\jquery-migrate.min.js" />
+    <Content Include="app\static\app\assets\lib\jquery\jquery.min.js" />
+    <Content Include="app\static\app\assets\lib\lightbox\css\lightbox.css" />
+    <Content Include="app\static\app\assets\lib\lightbox\css\lightbox.min.css" />
+    <Content Include="app\static\app\assets\lib\lightbox\images\close.png" />
+    <Content Include="app\static\app\assets\lib\lightbox\images\loading.gif" />
+    <Content Include="app\static\app\assets\lib\lightbox\images\next.png" />
+    <Content Include="app\static\app\assets\lib\lightbox\images\prev.png" />
+    <Content Include="app\static\app\assets\lib\lightbox\js\lightbox.js" />
+    <Content Include="app\static\app\assets\lib\lightbox\js\lightbox.min.js" />
+    <Content Include="app\static\app\assets\lib\mobile-nav\mobile-nav.js" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\LICENSE" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="app\static\app\assets\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="app\static\app\assets\lib\waypoints\waypoints.min.js" />
+    <Content Include="app\static\app\assets\lib\wow\wow.js" />
+    <Content Include="app\static\app\assets\lib\wow\wow.min.js" />
+    <Content Include="app\static\app\content\customstyles.css" />
+    <Content Include="app\templates\app\approvedservices.html" />
+    <Content Include="app\templates\app\bookedservices.html" />
+    <Content Include="app\templates\app\bookservice.html" />
+    <Content Include="app\templates\app\changepassword.html" />
+    <Content Include="app\templates\app\customer_profile.html" />
+    <Content Include="app\templates\app\editprofile.html" />
+    <Content Include="app\templates\app\feedback.html" />
+    <Content Include="app\templates\app\myservicebookings.html" />
+    <Content Include="app\templates\app\addservices.html" />
+    <Content Include="app\templates\app\paymentdetails.html" />
+    <Content Include="app\templates\app\serviceapprovalform.html" />
+    <Content Include="app\templates\app\serviceprov_profile.html" />
+    <Content Include="app\templates\app\service_panel.html" />
+    <Content Include="app\templates\app\index1.html" />
+    <Content Include="app\templates\app\layoutpanel.html" />
+    <Content Include="app\templates\app\sign_up.html" />
+    <Content Include="app\templates\app\sp_Profile.html" />
+    <Content Include="app\templates\app\view_service.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <Content Include="app\static\app\scripts\_references.js" />
+    <Content Include="app\templates\app\about.html" />
+    <Content Include="app\templates\app\contact.html" />
+    <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\layout.html" />
+    <Content Include="app\templates\app\login.html" />
+    <Content Include="app\templates\app\loginpartial.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.html">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.6</Version>
+      <Description>env (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

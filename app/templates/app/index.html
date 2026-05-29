@@ -1,0 +1,36 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron" style="background-color:skyblue;">
+    <h1>E-smart services</h1>
+    <p class="lead">This application which facilitates to register by individuals or group of people with their skills what 
+    they can give services (example: Care taker for children, health care taker - Home nurse, Helpers ..etc.).
+    Users can be given facility to login with system and can put a request to admin, can select which type of service he/she wants
+    based on availability of service providers and will be paid based on their service.
+    </p>
+   {#<p><a href="#" class="btn btn-primary btn-large">Home &raquo;</a></p>#}
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Services Available</h2>
+        <p>
+            Care takers for children, disabled persons, old people, transport services, any home services, etc..
+        </p>
+        <p><a class="btn btn-default" href="{% url 'view_service' %}">View Service &raquo;</a></p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Easy to Book home services</h2>
+        <p>you can book the service with an easy steps. view the services which we provide and book the service you want thank you</p>
+        {#<p><a class="btn btn-default" href="{% url 'view_services' %}">View Service &raquo;</a></p>#}
+    </div>
+    <div class="col-md-4">
+        <h2>User friendly </h2>
+        <p>Search for the services you want will provide veryfied best service provider </p>
+        {#<p><a class="btn btn-default" href="{% url 'view_services' %}">Search &raquo;</a></p>#}
+    </div>
+</div>
+
+{% endblock %}

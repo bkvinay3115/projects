@@ -1,0 +1,41 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="container">
+        <form action="{% url 'sign_up' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Sign Up</div>
+                    <div class="panel-body" style="background-color:gainsboro">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+                        <div>
+                            <table class="table"><tr><td class="btn btn-success"><input type="radio" name="type"  value="Service Provider" /><label>As Service Prvider </label></td>
+                                <td class="btn btn-warning">
+                                <label>     
+                                 </label><input type="radio" name="type" value="Customer" checked/><label>Customer</label> </td></tr></table>
+                            <p class="form-group"> 
+                                        
+                            </p>
+
+                        </div>
+                        <div class="form-group">
+                            <table class="table table-bordered">
+                             {{ form.as_table }}
+                            </table>
+                        </div>
+                        
+                        <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="Register" class="btn btn-success">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+

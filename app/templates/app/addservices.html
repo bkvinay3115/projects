@@ -1,0 +1,79 @@
+﻿{% extends 'app/layout.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+ <div class="row">
+     <div class="col-sm-3" style="padding-left:2em">
+         <br />
+         <table class="table table-striped" style="background-color:antiquewhite">             
+            <thead><tr class="danger"><th>My Personal Dashboard</th></tr></thead>
+             <tr class="success"><td><a href="{% url 'serviceprov_profile' %}"><span class="glyphicon glyphicon-envelope"></span>&nbsp; My profile</a></td></tr>
+             <tr class="warning"><td><a href="/editprofile/{{ sp_profile.id }}"><span class="glyphicon glyphicon-file"></span>&nbsp;Edit Profile</a></td></tr>
+             <tr class="active"><td><a href="{% url 'addservices' %}"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add my services </a></td></tr>
+             <tr class="success"><td><a href="{% url 'changepassword' %}"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Chnage Password</a></td></tr>
+             <tr class="info"><td><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span>&nbsp;Log out</a></td></tr>
+         </table>
+     </div>
+     
+     <div class="col-sm-8">
+         <div class="panel panel-primary">
+             <div class="panel-heading"> Add Service  </div>
+             <div class="panel-panel-body">
+   <form method="post" action="{% url 'addservices' %}" role="form" enctype="multipart/form-data">
+             {% csrf_token %}
+          <br />
+             {% if success %}
+             <a href="#" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-ok"></span>&nbsp; Service Added Successfully 
+                      </a>
+             {% endif %}
+        <div>
+              <table class="table table-bordered table-striped">
+           <tr><th><label for="id_spid">Spid:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><select name="spid" class="form-control" required id="id_spid">
+  <option value="" >---------</option>
+
+  <option value="{{ user.id }}" selected>{{ user }}</option>
+</select></td></tr>
+<tr><th><label for="id_spname">Service Provider:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><input type="text" name="spname" class="form-control" maxlength="50" required id="id_spname" /></td></tr>
+<tr><th><label for="id_contact">Contact:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><input type="text" name="contact" class="form-control" maxlength="12" required id="id_contact" /></td></tr>
+<tr><th><label for="id_email">Email:</label></th><td><input type="email" name="email" class="form-control" maxlength="254" id="id_email" /></td></tr>
+<tr><th><label for="id_group_type">Group type:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><select name="group_type" class="form-control" required id="id_group_type">
+  <option value="" selected>---------</option>
+
+  <option value="Group">Group of People</option>
+
+  <option value="Individual">Individual</option>
+
+</select></td></tr>
+<tr><th><label for="id_sp_type">Type of Service:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><input type="text" name="sp_type" class="form-control" maxlength="100" required id="id_sp_type" /></td></tr>
+<tr><th><label for="id_experience">Experience details:</label></th><td><input type="text" name="experience" class="form-control" maxlength="100" id="id_experience" /></td></tr>
+<tr><th><label for="id_specialization">Specialization:</label></th><td><textarea name="specialization" class="form-control" cols="40" rows="10" maxlength="100" id="id_specialization">
+</textarea></td></tr>
+<tr><th><label for="id_photo">Photo:</label></th><td><input type="file" name="photo" id="id_photo" /></td></tr>
+<tr><th><label for="id_address">Address:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><textarea name="address" class="form-control" cols="40" rows="10" maxlength="200" required id="id_address">
+</textarea></td></tr>
+<tr><th><label for="id_from_time">From time:</label></th><td><input type="text" name="from_time" class="form-control" id="id_from_time" /></td></tr>
+<tr><th><label for="id_to_time">To time:</label></th><td><input type="text" name="to_time" class="form-control" id="id_to_time" /></td></tr>
+<tr><th><label for="id_twenty_four_hrs">Twenty four hrs:</label></th><td><input type="checkbox" class="form-control" name="twenty_four_hrs" id="id_twenty_four_hrs" /></td></tr>
+<tr><th><label for="id_service_charge">Service charge:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><input type="number" name="service_charge" class="form-control" min="0" required id="id_service_charge" /></td></tr>
+<tr><th><label for="id_active_status">Active status:</label></th><td><ul class="errorlist" hidden><li>This field is required.</li></ul><select name="active_status" class="form-control" id="id_active_status">
+  <option value="In Active">In active</option>
+
+  <option value="Active">Active</option>
+
+</select></td></tr>
+                  </table>
+            
+          </div>
+        <div class="col-md-8 col-md-offset-4">
+            <input type="submit" value="Save" class="btn btn-primary">
+        </div>
+  </form>
+             </div>
+         </div>
+        
+    </div>
+     <div class="col-sm-1"></div>
+ </div>
+</div>
+{% endblock %}

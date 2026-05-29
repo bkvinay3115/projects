@@ -1,0 +1,29 @@
+﻿{% extends 'app/layout.html'%}
+{% block content %}
+<div class="container">
+        <form  method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Payment details</div>
+                    <div class="panel-body" style="background-color:bisque">
+                       <table class="table">
+                           <tr><td>Booking Id:</td><td><label name="booking_id">{{ booking.id }}</label></td></tr>
+                           <tr><td>Service provider name:</td><td><label name="sp_name">{{ booking.spname }}</label></td></tr>
+                           <tr><td>Service Charge(perday):</td><td><label name="serv_charge">{{ booking.servicecharge }}</label></td></tr>
+                           <tr><td>Total Days:</td><td><label name="tot_days">{{ booking.total_days }}</label></td></tr>
+                           <tr><td>Total Amount:</td><td><label name="tot_amount">Rs.{{ booking.total_amount }}</label></td></tr>
+                           <tr><td>Total Payable Amount:</td><td><label name="tot_pay_amount">Rs.{{ booking.total_amount }}</label></td><td><input type="text" name="tot_amt" value="{{ booking.total_amount }}" hidden/></td></tr>
+                          
+                       </table>
+                                               
+                        <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="Pay" class="btn btn-success">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

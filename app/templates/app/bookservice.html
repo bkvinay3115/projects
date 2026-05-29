@@ -1,0 +1,51 @@
+﻿{% extends 'app/layout.html' %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+    <div class="container">
+      
+        <form  method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    {% if user.is_authenticated %}
+                    <div class="panel-heading"><h3>Continue Booking service</h3></div>
+                      {% if success %}
+                       <a href="#" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-ok"></span>&nbsp; Service Booked Successfully 
+                      </a>
+                       {% endif %}
+                    {% else %}
+                    <div class="panel-heading "><label style="color:red">Plese Login to book service</label></div>
+                    {% endif %}
+                    <div class="panel-body" style="background-color:darkseagreen;">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+                        <table class="table table-bordered">
+                             <tr><th><label for="id_username">User name:</label></th><td><select name="username" class="form-control" required id="id_username">
+  <option value="{{ customer.id }}" class="form-control" selected>{{ user }}</option>
+
+</select></td></tr>
+<tr><th><label for="id_typeofservicereq">Typeofservicereq:</label></th><td><input type="text" name="typeofservicereq" class="form-control" maxlength="100" value="{{ service.sp_type }}" required id="id_typeofservicereq" /></td></tr>
+<tr><th><label for="id_fromdate">Fromdate:</label></th><td><input type="text" name="fromdate" value="2020-01-22" class="form-control" required id="id_fromdate" /><input type="hidden" name="initial-fromdate" value="2020-01-22" id="initial-id_fromdate" /></td></tr>
+<tr><th><label for="id_todate">Todate:</label></th><td><input type="text" name="todate" class="form-control" id="id_todate" /></td></tr>
+<tr><th><label for="id_sp_id">Sp id:</label></th><td><input type="number" name="sp_id" value="{{ service.id }}" class="form-control" min="0" id="id_sp_id" /></td></tr>
+<tr><th><label for="id_sp_name">Service Provider:</label></th><td><input type="text" name="sp_name" value="{{ service.spname }}" class="form-control" maxlength="50" required id="id_sp_name" /></td></tr>
+<tr><th><label for="id_servicecharge">Servicecharge:</label></th><td><input type="number" name="servicecharge" class="form-control" value="{{ service.service_charge }}" min="0" required id="id_servicecharge" /></td></tr>
+<tr><th><label for="id_address_remarks">Address remarks:</label></th><td><textarea name="address_remarks" cols="40" rows="10" class="form-control" maxlength="200" id="id_address_remarks">
+</textarea></td></tr>
+                         </table>
+                
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">                      
+                        <input type="submit" value="Book Service" class="btn btn-primary btn-medium" />
+                        <p style="color:red"><strong>{{ messge }}</strong></p>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

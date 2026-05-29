@@ -1,0 +1,73 @@
+﻿{% extends 'app/layout.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+ <div class="row">
+     <div class="col-sm-3" style="padding-left:2em">
+         <br />
+         <table class="table table-striped" style="background-color:aliceblue">             
+            <thead><tr class="danger"><th>My Personal Dashboard</th></tr></thead>
+             <tr class="success"><td><a href="{% url 'customer_profile' %}">My profile</a></td></tr>
+             <tr class="warning"><td><a href="/editprofile/{{ cust_profile.id }}">Edit Profile</a></td></tr>
+             <tr class="danger"><td><a href="{% url 'myservicebookings' %}">My Service Bookings</a></td></tr>
+             <tr class="active"><td><a href="{% url 'feedback' %}">Feedback</a></td></tr>
+             <tr class="success"><td><a href="{% url 'changepassword' %}">Change Password</a></td></tr>
+             <tr class="info"><td><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span>Log out</a></td></tr>
+         </table>
+  
+     </div>
+     <div class="col-sm-9">
+     <h2> Feedback </h2> 
+         <br />
+     <table class="table table-striped table-bordered" >
+         <thead><tr><th>Service Type</th><th>From_Date</th><th>To_Date</th><th>Service_Provider</th><th>Total_Bill</th><th>Payment</th><th>Feedback</th></tr></thead>
+          <tbody>
+              {% for booking in bookings %}
+                  {% if booking.payment.paidamount != 0 %}               
+               <tr><td>{{ booking.typeofservicereq }}</td><td> {{ booking.fromdate }}</td><td>{{ booking.todate }}</td><td>{{ booking.sp_name}}</td><td>Rs.{{ booking.total_amount}}</td> 
+               <td><span class="btn btn-danger">Paid</span></td> <td>
+                   <button class="btn btn-warning" data-toggle="modal" data-target="#booking_{{booking.id}}">Feed back</button>
+                      <div class="modal fade" id="booking_{{ booking.id }}" role="dialog">
+                <div class="modal-dialog">
+      <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   <h4 class="modal-title" style="color:darkblue;font-weight:bold;">Feedback</h4>
+                  </div>
+                  <div class="modal-body "> 
+                      <form method="post" action="{% url 'feedback' %}" role="form">
+                          {% csrf_token %}
+                          <div class="row">
+                              <table> <tr><td><strong>Booking ID:</strong></td><td><input type="number" class="btn btn-primary btn-sm" name="b_id" value="{{ booking.id }}" /></td></tr></table>
+                             </div>
+                          <div class="row">
+                              <div class="col-md-2"><strong>Feedback</strong></div>
+                              <div class="col-md-8"><textarea  name="feed_back" class="form-control" rows="10" cols="100" maxlength="100"></textarea></div>
+                          </div>
+                          <br />
+                         <div class="row">
+                          <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                         </div>
+                      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+                      </td></tr>                  
+                    
+                   {% endif %}
+              {% endfor %}
+             
+         </tbody>
+
+     </table>
+     
+ </div>
+</div>
+{% endblock %}

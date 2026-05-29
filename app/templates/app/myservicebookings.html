@@ -1,0 +1,44 @@
+﻿{% extends 'app/layout.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+ <div class="row">
+     <div class="col-sm-3" style="padding-left:2em;" >
+         <br />
+          <table class="table table-striped">             
+            <thead><tr class="danger"><th>My Personal Dashboard</th></tr></thead>
+             <tr class="success"><td><a href="{% url 'customer_profile' %}">My profile</a></td></tr>
+             <tr class="warning"><td><a href="/editprofile/{{ cust_profile.id }}">Edit Profile</a></td></tr>
+             <tr class="danger"><td><a href="{% url 'myservicebookings' %}">My Service Bookings</a></td></tr>
+             <tr class="active"><td><a href="{% url 'feedback' %}">Feedback</a></td></tr>
+             <tr class="success"><td><a href="{% url 'changepassword' %}">Change Password</a></td></tr>
+             <tr class="warning"><td><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-off"></span>Log out</a></td></tr>
+         </table>
+  
+     </div>
+     <div class="col-sm-9">
+     <h2>My Bookings </h2> 
+     <table class="table table-striped table-bordered" >
+         <thead style="background-color:cadetblue;"><tr><th>Service Type</th><th>Booking_Date</th><th>From_Date</th><th>To_Date</th><th>Service_Provider</th><th>Total_Bill</th><th>Payment</th></tr></thead>
+          <tbody>
+              {% for booking in bookings %}                  
+               <tr><td>{{ booking.typeofservicereq }}</td><td>{{ booking.bookingdate }}</td><td>{{ booking.fromdate }}</td><td>{{ booking.todate }}</td><td>{{ booking.sp_name}}</td><td>Rs.{{ booking.total_amount}}</td> 
+                <td> {% if booking.payment.paidamount == 0 %} 
+                         {% if booking.total_amount is 0 %}
+                          <a href="/payments/{{ booking.id }}" class="btn btn-success" disabled>Pay Bill</a>
+                         {% else %}
+                          <a href="/payments/{{ booking.id }}" class="btn btn-success">Pay Bill</a>
+                         {% endif %}
+                       {% else %}
+                        <p class="btn btn-danger">Paid</p>
+                       {% endif %}
+                    </td></tr>
+              {% endfor %}
+             
+         </tbody>
+
+     </table>
+    </div>
+     </div>
+</div>
+{% endblock %}
