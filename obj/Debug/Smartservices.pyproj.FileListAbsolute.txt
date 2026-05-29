@@ -1,2 +1,0 @@
-C:\Users\Abc\source\repos\installBootstarp\Smartservices\obj\Debug\Smartservices.pyproj.CoreCompileInputs.cache
-C:\Users\Asus\source\repos\Smart Services\Smartservices\obj\Debug\Smartservices.pyproj.CoreCompileInputs.cache
