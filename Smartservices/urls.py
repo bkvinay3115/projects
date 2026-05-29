@@ -2,64 +2,78 @@
 Definition of urls for Smartservices.
 """
 
-from datetime import datetime
-from django.conf.urls import url
-from django.conf.urls.static import static
-import django.contrib.auth.views
-from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-import app.forms
-import app.views
-
-# Uncomment the next lines to enable the admin:
-from django.conf.urls import include
 from django.contrib import admin
-admin.autodiscover()
+from django.urls import path, re_path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+
+import app.views
+import app.forms
 
 urlpatterns = [
-    # Examples:
-    url(r'^$', app.views.home, name='home'),
-    url(r'^contact$', app.views.contact, name='contact'),
-    url(r'^about$', app.views.about, name='about'),
-    url(r'^view_service$', app.views.view_service , name='view_service'),
-    url(r'^customer_profile$', app.views.customer_profile , name='customer_profile'),
-    url(r'^myservicebookings$', app.views.myservicebookings, name='myservicebookings'),
-    url(r'^serviceprov_profile$', app.views.serviceprov_profile, name='serviceprov_profile'),
-    url(r'^editprofile/(?P<id>\d+)$', app.views.editprofile, name='editprofile'),
-    url(r'^addservices$', app.views.addservices, name='addservices'),
-    #url(r'^bookservice$', app.views.bookservice, name='bookservice'),
-    url(r'^bookservice/(?P<id>\d+)$', app.views.bookservice, name='bookservice'),
-    url(r'^changepassword$', app.views.changepassword, name='changepassword'),
-    url(r'^payments/(?P<id>\d+)$', app.views.payments, name='payments'),
-    url(r'^feedback$', app.views.feedback, name='feedback'),
-    url(r'^bookedservices$', app.views.bookedservices, name='bookedservices'),
-    url(r'^approvedservices$', app.views.approvedservices, name='approvedservices'),
-    url(r'^serviceapproval/(?P<id>\d+)$', app.views.serviceapproval, name='serviceapproval'),
-    url(r'^login/$',
-        django.contrib.auth.views.login,
-        {
-            'template_name': 'app/login.html',
-            'authentication_form': app.forms.BootstrapAuthenticationForm,
-            'extra_context':
-            {
-                'title': 'Log in',
-                'year': datetime.now().year,
-            }
-        },
-        name='login'),
-    url(r'^logout$',
-        django.contrib.auth.views.logout,
-        {
-            'next_page': '/',
-        },
-        name='logout'),
+    path('', app.views.home, name='home'),
+    path('contact', app.views.contact, name='contact'),
+    path('about', app.views.about, name='about'),
+    path('view_service', app.views.view_service, name='view_service'),
+    path('customer_profile', app.views.customer_profile, name='customer_profile'),
+    path('myservicebookings', app.views.myservicebookings,
+         name='myservicebookings'),
+    path('serviceprov_profile', app.views.serviceprov_profile,
+         name='serviceprov_profile'),
+    path('addservices', app.views.addservices, name='addservices'),
+    path('changepassword', app.views.changepassword, name='changepassword'),
+    path('feedback', app.views.feedback, name='feedback'),
+    path('bookedservices', app.views.bookedservices, name='bookedservices'),
+    path('approvedservices', app.views.approvedservices, name='approvedservices'),
+    path('sign_up', app.views.sign_up, name='sign_up'),
 
-    url(r'^sign_up$', app.views.sign_up, name='sign_up'),
+    path(
+        'editprofile/<int:id>',
+        app.views.editprofile,
+        name='editprofile'
+    ),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    path(
+        'bookservice/<int:id>',
+        app.views.bookservice,
+        name='bookservice'
+    ),
 
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    path(
+        'payments/<int:id>',
+        app.views.payments,
+        name='payments'
+    ),
+
+    path(
+        'serviceapproval/<int:id>',
+        app.views.serviceapproval,
+        name='serviceapproval'
+    ),
+
+    path(
+        'login/',
+        auth_views.LoginView.as_view(
+            template_name='app/login.html',
+            authentication_form=app.forms.BootstrapAuthenticationForm
+        ),
+        name='login'
+    ),
+
+    path(
+        'logout/',
+        auth_views.LogoutView.as_view(
+            next_page='/'
+        ),
+        name='logout'
+    ),
+
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
+    path('admin/', admin.site.urls),
 ]
-urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
